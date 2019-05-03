@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
+  <rule id="CUS.OTHER.APEX.PMD.ExcessiveParameterList">
+    <java-class>com.als.core.NullRule</java-class>
+    <java-version>1.8</java-version>
+    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_codestyle.html#methodnamingconventions]]></reference>
+    <parameters/>
+    <code-examples>
+      <code-example id="codeExample">
+        <ko><![CDATA[// too many arguments liable to be mixed up
+public void addPerson(int birthYear, int birthMonth, int birthDate, int height, int weight, int ssn) {
+    // ...
+}
+]]></ko>
+        <ok><![CDATA[// preferred approach 
+public void addPerson(Date birthdate, BodyMeasurements measurements, int ssn) {
+    // ...
+}]]></ok>
+      </code-example>
+    </code-examples>
+    <incompatibilities/>
+    <related-rules/>
+    <criteria-values>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
+    </criteria-values>
+    <i18ns>
+      <i18n ref="OPT.LANGUAGE.ENGLISH">
+        <name><![CDATA[Avoid long parameter lists.]]></name>
+        <description><![CDATA[Methods with numerous parameters are a challenge to maintain, especially if most of them share the same datatype. These situations usually denote the need for new objects to wrap the numerous parameters.]]></description>
+        <remediation><![CDATA[]]></remediation>
+        <configuration><![CDATA[]]></configuration>
+        <benefits><![CDATA[]]></benefits>
+        <drawbacks><![CDATA[]]></drawbacks>
+        <parameters/>
+      </i18n>
+    </i18ns>
+  </rule>
+</rule-definition>

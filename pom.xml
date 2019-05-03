@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>mcp.kiuwan</groupId>
+	<artifactId>pmd-apex-kiuwan-plugin</artifactId>
+	<version>0.1.0</version>
+
+	<name>apex-pmd-kiuwan-plugin</name>
+	<description>PMD Apex report importer.</description>
+	<url>https://github.com/mcprol/pmd-apex-kiuwan-plugin</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>LocalProjectRepo</id>
+			<name>LocalProjectRepo</name>
+			<url>file://${project.basedir}/libext</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>kiuwan-kla-dependencies</groupId>
+			<artifactId>analyzer</artifactId>
+			<version>0.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.5.5</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>

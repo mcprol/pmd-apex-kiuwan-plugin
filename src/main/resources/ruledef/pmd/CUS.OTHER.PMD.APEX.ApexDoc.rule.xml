@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
+  <rule id="CUS.OTHER.APEX.PMD.ApexDoc">
+    <java-class>com.als.core.NullRule</java-class>
+    <java-version>1.8</java-version>
+    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_design.html#ncsstypecount]]></reference>
+    <parameters/>
+    <code-examples>
+      <code-example id="codeExample">
+        <ko><![CDATA[/**
+ * @description Hello World
+ */
+public class HelloWorld {
+    /**
+     * @description Bar
+     * @return Bar
+     */
+    public Object bar() { return null; }
+}]]></ko>
+        <ok><![CDATA[/**
+ * @description Hello World
+ */
+public class HelloWorld {
+    /**
+     * @description Bar
+     * @return Bar
+     */
+    public Object bar() { return null; }
+}
+]]></ok>
+      </code-example>
+    </code-examples>
+    <incompatibilities/>
+    <related-rules/>
+    <criteria-values>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.VULNERABILITY_TYPE.OTHER"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
+    </criteria-values>
+    <i18ns>
+      <i18n ref="OPT.LANGUAGE.ENGLISH">
+        <name><![CDATA[ApexDoc comment is missing or incorrect]]></name>
+        <description><![CDATA[This rule validates that:
+
+* ApexDoc comments are present for classes, methods, and properties that are public or global, excluding
+overrides and test classes (as well as the contents of test classes).
+* ApexDoc comments should contain @description.
+* ApexDoc comments on non-void, non-constructor methods should contain @return.
+* ApexDoc comments on void or constructor methods should not contain @return.
+* ApexDoc comments on methods with parameters should contain @param for each parameter, in the same
+order as the method signature.
+
+Method overrides and tests are both exempted from having ApexDoc.]]></description>
+        <remediation><![CDATA[]]></remediation>
+        <configuration><![CDATA[]]></configuration>
+        <benefits><![CDATA[]]></benefits>
+        <drawbacks><![CDATA[]]></drawbacks>
+        <parameters/>
+      </i18n>
+    </i18ns>
+  </rule>
+</rule-definition>

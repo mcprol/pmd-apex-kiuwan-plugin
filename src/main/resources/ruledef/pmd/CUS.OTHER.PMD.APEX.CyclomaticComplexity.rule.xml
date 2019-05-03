@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
+  <rule id="CUS.OTHER.APEX.PMD.CyclomaticComplexity">
+    <java-class>com.als.core.NullRule</java-class>
+    <java-version>1.8</java-version>
+    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_codestyle.html#methodnamingconventions]]></reference>
+    <parameters/>
+    <code-examples>
+      <code-example id="codeExample">
+        <ko><![CDATA[public class Complicated {
+  public void example() { // This method has a cyclomatic complexity of 12
+    int x = 0, y = 1, z = 2, t = 2;
+    boolean a = false, b = true, c = false, d = true;
+    if (a && b || b && d) {
+      if (y == z) {
+        x = 2;
+      } else if (y == t && !d) {
+        x = 2;
+      } else {
+        x = 2;
+      }
+    } else if (c && d) {
+      while (z < y) {
+        x = 2;
+      }
+    } else {
+      for (int n = 0; n < t; n++) {
+        x = 2;
+      }
+    }
+  }
+}]]></ko>
+        <ok><![CDATA[]]></ok>
+      </code-example>
+    </code-examples>
+    <incompatibilities/>
+    <related-rules/>
+    <criteria-values>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
+    </criteria-values>
+    <i18ns>
+      <i18n ref="OPT.LANGUAGE.ENGLISH">
+        <name><![CDATA[The {0} ''{1}'' has a{2} cyclomatic complexity of {3}.]]></name>
+        <description><![CDATA[The complexity of methods directly affects maintenance costs and readability. Concentrating too much decisional logic in a single method makes its behaviour hard to read and change.
+
+Cyclomatic complexity assesses the complexity of a method by counting the number of decision points in a method, plus one for the method entry. Decision points are places where the control flow jumps to another place in the program. As such, they include all control flow statements, such as 'if', 'while', 'for', and 'case'.
+
+Generally, numbers ranging from 1-4 denote low complexity, 5-7 denote moderate complexity, 8-10 denote
+high complexity, and 11+ is very high complexity. By default, this rule reports methods with a complexity >= 10.
+Additionnally, classes with many methods of moderate complexity get reported as well once the total of their
+methods' complexities reaches 40, even if none of the methods was directly reported.
+
+Reported methods should be broken down into several smaller methods. Reported classes should probably be broken down into subcomponents.]]></description>
+        <remediation><![CDATA[]]></remediation>
+        <configuration><![CDATA[]]></configuration>
+        <benefits><![CDATA[]]></benefits>
+        <drawbacks><![CDATA[]]></drawbacks>
+        <parameters/>
+      </i18n>
+    </i18ns>
+  </rule>
+</rule-definition>
