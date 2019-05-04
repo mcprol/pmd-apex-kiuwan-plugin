@@ -46,7 +46,7 @@ You can run PMD engine with the full ruleset, but only violations for rules in y
 
 As example, ruledefs for PMD v6.12, can be found at resources/ruledef/pmd directory.
 
-A Ruledef generator example can be found at src/...
+A Ruledef generator example can be found [here].(src/main/java/mcp/kiuwan/rules/pmd/apex/RulesetGenerator.java)
 
 Some considerations for this ruledef files:
 

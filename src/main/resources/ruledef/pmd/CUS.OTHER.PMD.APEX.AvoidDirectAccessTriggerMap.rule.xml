@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-  <rule id="CUS.OTHER.APEX.PMD.AvoidDirectAccessTriggerMap">
-    <java-class>com.als.core.NullRule</java-class>
-    <java-version>1.8</java-version>
-    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_design.html#ncsstypecount]]></reference>
-    <parameters/>
-    <code-examples>
-      <code-example id="codeExample">
-        <ko><![CDATA[trigger AccountTrigger on Account (before insert, before update) {
+	<rule id="CUS.OTHER.PMD.APEX.AvoidDirectAccessTriggerMap">
+		<java-class>com.als.core.NullRule</java-class>
+		<java-version>1.8</java-version>
+		<tags>apex</tags>
+		<reference><![CDATA[https://pmd.github.io/pmd/pmd_rules_apex_errorprone.html#avoiddirectaccesstriggermap]]></reference>
+
+		<parameters/>
+		<code-examples>
+			<code-example id="codeExample">
+				<ko><![CDATA[
+
+trigger AccountTrigger on Account (before insert, before update) {
    Account a = Trigger.new[0]; //Bad: Accessing the trigger array directly is not recommended.
    
    foreach ( Account a : Trigger.new ){   
         //Good: Iterate through the trigger.new array instead.
    }
 }
-]]></ko>
-        <ok><![CDATA[]]></ok>
-      </code-example>
-    </code-examples>
-    <incompatibilities/>
-    <related-rules/>
-    <criteria-values>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
-    </criteria-values>
-    <i18ns>
-      <i18n ref="OPT.LANGUAGE.ENGLISH">
-        <name><![CDATA[Avoid directly accessing Trigger.old and Trigger.new]]></name>
-        <description><![CDATA[Avoid directly accessing Trigger.old and Trigger.new as it can lead to a bug. Triggers should be bulkified and iterate through the map to handle the actions for each item separately.]]></description>
-        <remediation><![CDATA[]]></remediation>
-        <configuration><![CDATA[]]></configuration>
-        <benefits><![CDATA[]]></benefits>
-        <drawbacks><![CDATA[]]></drawbacks>
-        <parameters/>
-      </i18n>
-    </i18ns>
-  </rule>
+
+        ]]></ko>
+				<ok><![CDATA[]]></ok>
+			</code-example>
+		</code-examples>
+    
+    	<incompatibilities />
+		<related-rules />
+
+		<criteria-values>
+			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
+			
+		</criteria-values>
+
+		<i18ns>
+			<i18n ref="OPT.LANGUAGE.ENGLISH">
+				<name><![CDATA[Avoid directly accessing Trigger.old and Trigger.new]]></name>
+				<message><![CDATA[]]></message>
+				<description><![CDATA[
+Avoid directly accessing Trigger.old and Trigger.new as it can lead to a bug. Triggers should be bulkified and iterate through the map to handle the actions for each item separately.
+        ]]></description>
+				<benefits><![CDATA[]]></benefits>
+				<drawbacks><![CDATA[]]></drawbacks>
+				<parameters/>
+			</i18n>
+		</i18ns>
+
+	</rule>
 </rule-definition>

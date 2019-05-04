@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-  <rule id="CUS.OTHER.APEX.PMD.TooManyFields">
-    <java-class>com.als.core.NullRule</java-class>
-    <java-version>1.8</java-version>
-    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_design.html#ncsstypecount]]></reference>
-    <parameters/>
-    <code-examples>
-      <code-example id="codeExample">
-        <ko><![CDATA[public class Person {
+	<rule id="CUS.OTHER.PMD.APEX.TooManyFields">
+		<java-class>com.als.core.NullRule</java-class>
+		<java-version>1.8</java-version>
+		<tags>apex</tags>
+		<reference><![CDATA[https://pmd.github.io/pmd/pmd_rules_apex_design.html#toomanyfields]]></reference>
+
+		<parameters/>
+		<code-examples>
+			<code-example id="codeExample">
+				<ko><![CDATA[
+
+public class Person {
     // too many separate fields
     int birthYear;
     int birthMonth;
@@ -16,34 +20,44 @@
     float height;
     float weight;
 }
-]]></ko>
-        <ok><![CDATA[public class Person {
+
+public class Person {
     // this is more manageable
     Date birthDate;
     BodyMeasurements measurements;
 }
-]]></ok>
-      </code-example>
-    </code-examples>
-    <incompatibilities/>
-    <related-rules/>
-    <criteria-values>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
-    </criteria-values>
-    <i18ns>
-      <i18n ref="OPT.LANGUAGE.ENGLISH">
-        <name><![CDATA[Too many fields]]></name>
-        <description><![CDATA[Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields, possibly through grouping related fields in new objects.  For example, a class with individual city/state/zip fields could park them within a single Address field.]]></description>
-        <remediation><![CDATA[]]></remediation>
-        <configuration><![CDATA[]]></configuration>
-        <benefits><![CDATA[]]></benefits>
-        <drawbacks><![CDATA[]]></drawbacks>
-        <parameters/>
-      </i18n>
-    </i18ns>
-  </rule>
+
+        ]]></ko>
+				<ok><![CDATA[]]></ok>
+			</code-example>
+		</code-examples>
+    
+    	<incompatibilities />
+		<related-rules />
+
+		<criteria-values>
+			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
+			
+		</criteria-values>
+
+		<i18ns>
+			<i18n ref="OPT.LANGUAGE.ENGLISH">
+				<name><![CDATA[Too many fields]]></name>
+				<message><![CDATA[]]></message>
+				<description><![CDATA[
+Classes that have too many fields can become unwieldy and could be redesigned to have fewer fields,
+possibly through grouping related fields in new objects.  For example, a class with individual 
+city/state/zip fields could park them within a single Address field.
+        ]]></description>
+				<benefits><![CDATA[]]></benefits>
+				<drawbacks><![CDATA[]]></drawbacks>
+				<parameters/>
+			</i18n>
+		</i18ns>
+
+	</rule>
 </rule-definition>

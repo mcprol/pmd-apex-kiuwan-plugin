@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-	<rule id="CUS.OTHER.PMD.APEX.ForLoopsMustUseBraces">
+	<rule id="CUS.OTHER.PMD.APEX.@rulecode@">
 		<java-class>com.als.core.NullRule</java-class>
 		<java-version>1.8</java-version>
 		<tags>apex</tags>
-		<reference><![CDATA[https://pmd.github.io/pmd/pmd_rules_apex_codestyle.html#forloopsmustusebraces]]></reference>
+		<reference><![CDATA[@reference@]]></reference>
 
 		<parameters/>
 		<code-examples>
 			<code-example id="codeExample">
-				<ko><![CDATA[
-
-for (int i = 0; i < 42; i++) // not recommended
-    foo();
-
-for (int i = 0; i < 42; i++) { // preferred approach
-    foo();
-}
-
-        ]]></ko>
+				<ko><![CDATA[@example@]]></ko>
 				<ok><![CDATA[]]></ok>
 			</code-example>
 		</code-examples>
@@ -29,22 +20,18 @@ for (int i = 0; i < 42; i++) { // preferred approach
 
 		<criteria-values>
 			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.@priority@" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
-			
+			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.@category@" />
+			@vulnerability_type@
 		</criteria-values>
 
 		<i18ns>
 			<i18n ref="OPT.LANGUAGE.ENGLISH">
-				<name><![CDATA[Avoid using 'for' statements without curly braces]]></name>
+				<name><![CDATA[@rulename@]]></name>
 				<message><![CDATA[]]></message>
-				<description><![CDATA[
-Avoid using 'for' statements without using surrounding braces. If the code formatting or
-indentation is lost then it becomes difficult to separate the code being controlled
-from the rest.
-        ]]></description>
+				<description><![CDATA[@description@]]></description>
 				<benefits><![CDATA[]]></benefits>
 				<drawbacks><![CDATA[]]></drawbacks>
 				<parameters/>

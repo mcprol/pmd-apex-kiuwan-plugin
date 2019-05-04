@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-  <rule id="CUS.OTHER.APEX.PMD.ExcessivePublicCount">
-    <java-class>com.als.core.NullRule</java-class>
-    <java-version>1.8</java-version>
-    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_codestyle.html#methodnamingconventions]]></reference>
-    <parameters/>
-    <code-examples>
-      <code-example id="codeExample">
-        <ko><![CDATA[public class Foo {
+	<rule id="CUS.OTHER.PMD.APEX.ExcessivePublicCount">
+		<java-class>com.als.core.NullRule</java-class>
+		<java-version>1.8</java-version>
+		<tags>apex</tags>
+		<reference><![CDATA[https://pmd.github.io/pmd/pmd_rules_apex_design.html#excessivepubliccount]]></reference>
+
+		<parameters/>
+		<code-examples>
+			<code-example id="codeExample">
+				<ko><![CDATA[
+
+public class Foo {
     public String value;
     public Bar something;
     public Variable var;
@@ -18,29 +22,40 @@
     public void doMoreWork() {}
     public void doWorkAgain() {}
     // [... more more public methods ...]
-}]]></ko>
-        <ok><![CDATA[]]></ok>
-      </code-example>
-    </code-examples>
-    <incompatibilities/>
-    <related-rules/>
-    <criteria-values>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
-    </criteria-values>
-    <i18ns>
-      <i18n ref="OPT.LANGUAGE.ENGLISH">
-        <name><![CDATA[This class has a bunch of public methods and attributes]]></name>
-        <description><![CDATA[Classes with large numbers of public methods and attributes require disproportionate testing efforts since combinational side effects grow rapidly and increase risk. Refactoring these classes into smaller ones not only increases testability and reliability but also allows new variations to be developed easily.]]></description>
-        <remediation><![CDATA[]]></remediation>
-        <configuration><![CDATA[]]></configuration>
-        <benefits><![CDATA[]]></benefits>
-        <drawbacks><![CDATA[]]></drawbacks>
-        <parameters/>
-      </i18n>
-    </i18ns>
-  </rule>
+}
+
+        ]]></ko>
+				<ok><![CDATA[]]></ok>
+			</code-example>
+		</code-examples>
+    
+    	<incompatibilities />
+		<related-rules />
+
+		<criteria-values>
+			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
+			
+		</criteria-values>
+
+		<i18ns>
+			<i18n ref="OPT.LANGUAGE.ENGLISH">
+				<name><![CDATA[This class has a bunch of public methods and attributes]]></name>
+				<message><![CDATA[]]></message>
+				<description><![CDATA[
+Classes with large numbers of public methods and attributes require disproportionate testing efforts
+since combinational side effects grow rapidly and increase risk. Refactoring these classes into
+smaller ones not only increases testability and reliability but also allows new variations to be
+developed easily.
+        ]]></description>
+				<benefits><![CDATA[]]></benefits>
+				<drawbacks><![CDATA[]]></drawbacks>
+				<parameters/>
+			</i18n>
+		</i18ns>
+
+	</rule>
 </rule-definition>

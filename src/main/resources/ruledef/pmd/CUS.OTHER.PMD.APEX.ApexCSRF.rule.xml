@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-  <rule id="CUS.OTHER.APEX.PMD.ApexCSRF">
-    <java-class>com.als.core.NullRule</java-class>
-    <java-version>1.8</java-version>
-    <reference><![CDATA[${pmd.website.baseurl}/pmd_rules_apex_errorprone.html#emptycatchblock]]></reference>
-    <parameters/>
-    <code-examples>
-      <code-example id="codeExample">
-        <ko><![CDATA[public class Foo {
+	<rule id="CUS.OTHER.PMD.APEX.ApexCSRF">
+		<java-class>com.als.core.NullRule</java-class>
+		<java-version>1.8</java-version>
+		<tags>apex</tags>
+		<reference><![CDATA[https://pmd.github.io/pmd/pmd_rules_apex_security.html#apexcsrf]]></reference>
+
+		<parameters/>
+		<code-examples>
+			<code-example id="codeExample">
+				<ko><![CDATA[
+
+public class Foo {
     public init() {
         insert data;
     }
@@ -16,29 +20,38 @@
     public Foo() {
         insert data;
     }
-}]]></ko>
-        <ok><![CDATA[]]></ok>
-      </code-example>
-    </code-examples>
-    <incompatibilities/>
-    <related-rules/>
-    <criteria-values>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.MEDIUM"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
-      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER"/>
-    </criteria-values>
-    <i18ns>
-      <i18n ref="OPT.LANGUAGE.ENGLISH">
-        <name><![CDATA[Avoid making DML operations in Apex class constructor/init method]]></name>
-        <description><![CDATA[Check to avoid making DML operations in Apex class constructor/init method. This prevents modification of the database just by accessing a page.]]></description>
-        <remediation><![CDATA[]]></remediation>
-        <configuration><![CDATA[]]></configuration>
-        <benefits><![CDATA[]]></benefits>
-        <drawbacks><![CDATA[]]></drawbacks>
-        <parameters/>
-      </i18n>
-    </i18ns>
-  </rule>
+}
+
+        ]]></ko>
+				<ok><![CDATA[]]></ok>
+			</code-example>
+		</code-examples>
+    
+    	<incompatibilities />
+		<related-rules />
+
+		<criteria-values>
+			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.MEDIUM" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.OTHER" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.SECURITY" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.VULNERABILITY_TYPE.OTHER"/>
+		</criteria-values>
+
+		<i18ns>
+			<i18n ref="OPT.LANGUAGE.ENGLISH">
+				<name><![CDATA[Avoid making DML operations in Apex class constructor/init method]]></name>
+				<message><![CDATA[]]></message>
+				<description><![CDATA[
+Check to avoid making DML operations in Apex class constructor/init method. This prevents
+modification of the database just by accessing a page.
+        ]]></description>
+				<benefits><![CDATA[]]></benefits>
+				<drawbacks><![CDATA[]]></drawbacks>
+				<parameters/>
+			</i18n>
+		</i18ns>
+
+	</rule>
 </rule-definition>
