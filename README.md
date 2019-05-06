@@ -5,7 +5,7 @@ An utility to import [PMD (Apex language)](https://pmd.github.io/latest/pmd_rule
 If you are an impatient person, here are the steps to install and run this plugin in your kiuwan analysis:
 1. copy dist/pmd-apex-kiuwan-plugin-x.y.z.jar in your {KIUWAN\_LOCAL\_ANALYZER\_INSTALLATION\_DIR}/lib.custom directory.
 
-1. install pmd-apex-kiuwan-plugin/src/main/resources/ruledef files in your kiuwan account. See more on this at [Installing rule definitions](https://www.kiuwan.com/docs/display/K5/Installing+rule+definitions+created+with+Kiuwan+Rule+Developer)
+1. install pmd-apex-kiuwan-plugin/dist/ruledef files in your kiuwan account. See more on this at [Installing rule definitions](https://www.kiuwan.com/docs/display/K5/Installing+rule+definitions+created+with+Kiuwan+Rule+Developer)
 
 1. creates a new model with this new rules, and assign the model to your kiuwan APEX applications
 
@@ -38,13 +38,13 @@ To avoid execution problems when you have another languages in your analysis, 'l
 ### rule CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin
 This kiuwan plugin is really a kiuwan native rule that looks for a PMD report file (called pmd-apex-report.xml) and generates 'kiuwan defects' for each 'PMD violation' reported in that file.
 
-You need to upload and insert this rule (resources/ruledef/CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin.rule.xml) in your kiuwan model to ensure that PMD report is processed.
+You need to upload and insert this rule (dist/ruledef/CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin.rule.xml) in your kiuwan model to ensure that PMD report is processed.
 
 ### kiuwan rules vs PMD rules
 Also, for each 'PMD rule' you need a kiuwan ruledef, and also upload them to kiuwan.
 You can run PMD engine with the full ruleset, but only violations for rules in your kiuwan model will be imported as kiuwan defects.
 
-As example, ruledefs for PMD v6.12, can be found at resources/ruledef/pmd directory.
+As example, ruledefs for PMD v6.12, can be found at [dist/ruledef/pmd](dist/ruledef/pmd). directory.
 
 A Ruledef generator example can be found [here](src/main/java/mcp/kiuwan/rules/pmd/apex/RulesetGenerator.java)
 
