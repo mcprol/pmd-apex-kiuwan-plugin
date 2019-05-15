@@ -38,7 +38,7 @@ To avoid execution problems when you have another languages in your analysis, 'l
 ### rule CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin
 This kiuwan plugin is really a kiuwan native rule that looks for a PMD report file (called pmd-apex-report.xml) and generates 'kiuwan defects' for each 'PMD violation' reported in that file.
 
-You need to upload and insert this rule (dist/ruledef/CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin.rule.xml) in your kiuwan model to ensure that PMD report is processed.
+You need to upload and insert this rule [dist/ruledef/CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin.rule.xml](dist/ruledef/CUS.MCP.KIUWAN.RULES.PMD.APEX.Plugin.rule.xml) in your kiuwan model to ensure that PMD report is processed.
 
 ### kiuwan rules vs PMD rules
 Also, for each 'PMD rule' you need a kiuwan ruledef, and also upload them to kiuwan.

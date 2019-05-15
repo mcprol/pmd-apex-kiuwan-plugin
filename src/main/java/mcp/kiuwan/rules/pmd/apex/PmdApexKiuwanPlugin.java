@@ -227,10 +227,15 @@ public class PmdApexKiuwanPlugin extends AbstractRule {
 		 */
 		private String getCodeFragment(File file) {
 			String fragment = DEFAULT_CODE_FRAGMENT;
+			int MAX_CODE_FRAGMENT_LINES = 5;
 
 			try {
 				String[] lines = IOUtils.lines(file);
 				 if (lines.length > 0) {
+					 if (attViolationEndLine - attViolationBeginLine > MAX_CODE_FRAGMENT_LINES) {
+						 attViolationEndLine = attViolationBeginLine + MAX_CODE_FRAGMENT_LINES - 1;
+					 }
+					 
 					 String[] fragmentLines = Arrays.copyOfRange(lines, attViolationBeginLine-1, attViolationEndLine-1+1);
 					 fragment = String.join("\n", fragmentLines);						 
 				 }

@@ -7,7 +7,7 @@
 
 	<groupId>mcp.kiuwan</groupId>
 	<artifactId>pmd-apex-kiuwan-plugin</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 
 	<name>apex-pmd-kiuwan-plugin</name>
 	<description>PMD Apex report importer.</description>
